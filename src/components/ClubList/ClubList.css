@@ -1,0 +1,11 @@
+.clubList {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.clubItem {
+  width: 340px;
+  border: 1px solid black;
+  margin: 5px;
+  padding: 10px;
+}
