@@ -2,6 +2,35 @@ import React from 'react';
 import './ClubList.scss';
 import Loader from '../../Loader';
 
+const getActivitiesOptions = (clubs, cityForFilter) => {
+  return clubs
+    .reduce((acc, club) => {
+      if (cityForFilter === club.city.slug || !cityForFilter) {
+        acc.push(...club.activity);
+      }
+      return acc;
+    }, [])
+    .reduce((acc, act) => {
+      if (!acc.some((c) => c.slug === act.slug)) {
+        acc.push(act);
+      }
+      return acc;
+    }, []);
+};
+
+const getCitiesOptions = (clubs, activityForFilter) => {
+  return clubs.reduce((acc, club) => {
+    if (
+      !acc.some((c) => c.slug === club.city.slug) &&
+      (club.activity.map((act) => act.slug).includes(activityForFilter) ||
+        !activityForFilter)
+    ) {
+      acc.push(club.city);
+    }
+    return acc;
+  }, []);
+};
+
 class ClubList extends React.Component {
   state = {
     clubs: [],
@@ -22,32 +51,16 @@ class ClubList extends React.Component {
     fetch('https://instasport.co/dashboard/api/v1/clubs/')
       .then((results) => results.json())
       .then((clubs) => {
-        // I just want to show loader, that's why I have timeout here
-        setTimeout(() => {
-          this.setState({
-            clubs,
-            citiesOptions: clubs.reduce((acc, club) => {
-              if (!acc.some((c) => c.slug === club.city.slug)) {
-                acc.push(club.city);
-              }
-              return acc;
-            }, []),
-            activitiesOptions: clubs
-              .reduce((acc, club) => {
-                acc.push(...club.activity);
-                return acc;
-              }, [])
-              .reduce((acc, act) => {
-                if (!acc.some((c) => c.slug === act.slug)) {
-                  acc.push(act);
-                }
-                return acc;
-              }, []),
-            isLoading: false,
-          });
-        }, 1000);
+        this.setState({
+          clubs,
+          citiesOptions: getCitiesOptions(clubs),
+          activitiesOptions: getActivitiesOptions(clubs),
+          isLoading: false,
+        });
       });
   }
+
+  updateCitiesOptions() {}
 
   render() {
     const {
@@ -78,13 +91,22 @@ class ClubList extends React.Component {
             <div className='select'>
               <select
                 onChange={(event) => {
+                  const city = event.target.value;
                   this.setState({
-                    query: {
-                      city: event.target.value,
-                      activity: this.state.query.activity,
-                    },
+                    isLoading: true,
                   });
+                  setTimeout(() => {
+                    this.setState({
+                      query: {
+                        city,
+                        activity: this.state.query.activity,
+                      },
+                      activitiesOptions: getActivitiesOptions(clubs, city),
+                      isLoading: false,
+                    });
+                  }, 1000);
                 }}
+                value={this.state.query.city}
               >
                 <option value=''>Все города</option>
                 {citiesOptions.map((city, index) => {
@@ -97,7 +119,6 @@ class ClubList extends React.Component {
               </select>
             </div>
           </div>
-
           <div className='clubFilters__activityFilter_container'>
             <span className='clubFilters__activityFilter_title'>
               Выберите Направление:
@@ -105,13 +126,22 @@ class ClubList extends React.Component {
             <div className='select'>
               <select
                 onChange={(event) => {
+                  const activity = event.target.value;
                   this.setState({
-                    query: {
-                      city: this.state.query.city,
-                      activity: event.target.value,
-                    },
+                    isLoading: true,
                   });
+                  setTimeout(() => {
+                    this.setState({
+                      query: {
+                        city: this.state.query.city,
+                        activity,
+                      },
+                      citiesOptions: getCitiesOptions(clubs, activity),
+                      isLoading: false,
+                    });
+                  }, 1000);
                 }}
+                value={this.state.query.activity}
               >
                 <option value=''>Все направления</option>
                 {activitiesOptions.map((activity, index) => (
