@@ -1,0 +1,107 @@
+.main__container {
+  width: 1600px;
+  margin: 50px auto;
+}
+
+.clubFilters {
+  display: flex;
+  justify-content: center;
+
+  &__cityFilter_container,
+  &__activityFilter_container {
+    margin: 10px 20px;
+  }
+
+  &__cityFilter_title,
+  &__activityFilter_title {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: 500;
+  }
+}
+
+.clubList {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  &__clubItem_link {
+    text-decoration: none;
+    color: #31708e;
+    margin: 5px;
+  }
+}
+
+.clubItem {
+  width: 340px;
+  height: 340px;
+  box-shadow: 2px 2px 8px -2px rgba(104, 120, 100, 1);
+  border-radius: 3px;
+  padding: 20px;
+  background-color: #fff;
+  transition: transform 0.3s;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+
+  &__logo {
+    width: 260px;
+    height: 260px;
+    border-radius: 8px;
+    display: flex;
+    margin: auto;
+  }
+
+  &__title {
+    font-weight: 500;
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
+  }
+}
+
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  outline: 0;
+  box-shadow: none;
+  border: 0;
+  background: #2c3e50;
+  background-image: none;
+  flex: 1;
+  padding: 0 0.5em;
+  color: #fff;
+  cursor: pointer;
+}
+
+.select {
+  position: relative;
+  display: flex;
+  width: 20em;
+  height: 3em;
+  line-height: 3;
+  background: #2c3e50;
+  overflow: hidden;
+  border-radius: 0.25em;
+
+  &::after {
+    content: '\25BC';
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0 1em;
+    background: #34495e;
+    cursor: pointer;
+    pointer-events: none;
+    -webkit-transition: 0.25s all ease;
+    -o-transition: 0.25s all ease;
+    transition: 0.25s all ease;
+  }
+
+  &:hover::after {
+    color: #f39c12;
+  }
+}

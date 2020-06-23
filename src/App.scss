@@ -1,0 +1,25 @@
+.header {
+  display: flex;
+  height: 300px;
+  justify-content: center;
+  align-items: center;
+  background-color: #8fc1e3;
+  border-bottom: 2px solid #31708e;
+
+  &__title {
+    font-weight: 700;
+    font-size: 100px;
+    color: #31708e;
+    display: flex;
+
+    &::after {
+      content: '';
+      background-image: url('https://cdn-images-1.medium.com/max/1200/1*oRHMfcPlPY15cdU6mTuNHg.png');
+      background-size: cover;
+      background-repeat: no-repeat;
+      display: inline-block;
+      width: 128px;
+      height: 128px;
+    }
+  }
+}
