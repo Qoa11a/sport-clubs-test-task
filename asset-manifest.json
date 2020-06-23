@@ -1,22 +1,22 @@
 {
   "files": {
     "main.css": "/sport-clubs-test-task/static/css/main.92634244.chunk.css",
-    "main.js": "/sport-clubs-test-task/static/js/main.3e08e1f7.chunk.js",
-    "main.js.map": "/sport-clubs-test-task/static/js/main.3e08e1f7.chunk.js.map",
+    "main.js": "/sport-clubs-test-task/static/js/main.d94e9b8a.chunk.js",
+    "main.js.map": "/sport-clubs-test-task/static/js/main.d94e9b8a.chunk.js.map",
     "runtime-main.js": "/sport-clubs-test-task/static/js/runtime-main.df5a17a6.js",
     "runtime-main.js.map": "/sport-clubs-test-task/static/js/runtime-main.df5a17a6.js.map",
-    "static/js/2.a95c4912.chunk.js": "/sport-clubs-test-task/static/js/2.a95c4912.chunk.js",
-    "static/js/2.a95c4912.chunk.js.map": "/sport-clubs-test-task/static/js/2.a95c4912.chunk.js.map",
+    "static/js/2.914fb378.chunk.js": "/sport-clubs-test-task/static/js/2.914fb378.chunk.js",
+    "static/js/2.914fb378.chunk.js.map": "/sport-clubs-test-task/static/js/2.914fb378.chunk.js.map",
     "index.html": "/sport-clubs-test-task/index.html",
-    "precache-manifest.8447b6fd2a3748c04e7cd5b630f078d5.js": "/sport-clubs-test-task/precache-manifest.8447b6fd2a3748c04e7cd5b630f078d5.js",
+    "precache-manifest.5287d666909f101cc9120a797a4dc1ca.js": "/sport-clubs-test-task/precache-manifest.5287d666909f101cc9120a797a4dc1ca.js",
     "service-worker.js": "/sport-clubs-test-task/service-worker.js",
     "static/css/main.92634244.chunk.css.map": "/sport-clubs-test-task/static/css/main.92634244.chunk.css.map",
-    "static/js/2.a95c4912.chunk.js.LICENSE.txt": "/sport-clubs-test-task/static/js/2.a95c4912.chunk.js.LICENSE.txt"
+    "static/js/2.914fb378.chunk.js.LICENSE.txt": "/sport-clubs-test-task/static/js/2.914fb378.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.df5a17a6.js",
-    "static/js/2.a95c4912.chunk.js",
+    "static/js/2.914fb378.chunk.js",
     "static/css/main.92634244.chunk.css",
-    "static/js/main.3e08e1f7.chunk.js"
+    "static/js/main.d94e9b8a.chunk.js"
   ]
 }
