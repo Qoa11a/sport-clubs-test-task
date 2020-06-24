@@ -23,3 +23,18 @@
     }
   }
 }
+
+@media screen and (max-width: 800px) {
+  .header {
+    height: 150px;
+
+    &__title {
+      font-size: 50px;
+
+      &::after {
+        width: 64px;
+        height: 64px;
+      }
+    }
+  }
+}
