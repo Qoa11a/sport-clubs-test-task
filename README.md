@@ -19,6 +19,7 @@ Techologies Used:
 
 ### Scripts
 
+1. To install dependencies - `npm i`
 1. To start a server - `npm run start`
 1. To build for production - `npm run build`
 1. To deploy your page to GitHub Pages (don't forget to build for production before) - `npm run deploy` 
